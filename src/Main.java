@@ -51,7 +51,8 @@ public class Main {
                 case 4:
                     System.out.println("input person ID");
                     int person_id_input=input.nextInt();
-                    hotelManage.getTaltolMoneyById(person_id_input);
+                    int totalMoney=hotelManage.getTaltolMoneyById(person_id_input);
+                    System.out.println(totalMoney);
                     break;
                 case 5:
                     hotelManage.displayAllPerson();
@@ -82,7 +83,7 @@ public class Main {
         if (room ==null) System.out.println("room is not valid");
         else {
             if (room.isEmty){
-                Person person = getInputPerson(input);
+                Person person = getInputPerson();
                 room.addPerson(person);
             }else System.out.println("room is full");
         }
@@ -92,12 +93,13 @@ public class Main {
         if (room ==null) System.out.println("room is not valid");
         else {
             if (!room.isEmty){
-                Person person = getInputPerson(input);
+                Person person = getInputPerson();
                 room.editPerson(person);
             }else System.out.println("room is emty");
         }
     }
-    public static Person getInputPerson(Scanner input) {
+    public static Person getInputPerson() {
+        Scanner input=new Scanner(System.in);
         System.out.println("input name");
         String name= input.nextLine();
         System.out.println("input person id");
